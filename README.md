@@ -38,8 +38,18 @@ Folder layout:
     - CheckItem.jsx
     - CustomStyles.jsx
 
+## Deploy on Vercel
+
+1. Push this repo to GitHub and [import the project](https://vercel.com/new) in Vercel (framework **Vite** is detected automatically; build is `npm run build`, output **`dist`**).
+2. **Environment variables** (Project → Settings → Environment Variables), for **Production** and **Preview**:
+   - `VITE_BOLNA_API_KEY` — Bolna API bearer token  
+   - `VITE_BOLNA_AGENT_ID` — outbound agent UUID  
+   Redeploy after saving. Without these, the voice demo shows a setup notice and stays disabled (keys are not committed to git).
+3. `vercel.json` includes SPA **rewrites** to `index.html` (per [Vite on Vercel](https://vercel.com/docs/frameworks/frontend/vite)) and long-cache headers for hashed `/assets/*` files.
+
+Local secrets: copy `.env.example` to `.env.local` and fill values (`.env.local` is gitignored).
+
 Next suggestions (optional):
-- Add Tailwind for utilities and responsive behavior.
 - Add TypeScript if you want stronger types.
 - Add unit/integration tests for interactive components.
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Phone, PhoneCall, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 
-const BOLNA_API_KEY  = 'bn-766ca42accde4d2d9e28d560bf5c34a1';
-const BOLNA_AGENT_ID = '27d6d861-721c-40b7-ba6a-151988b3ef40';
+const BOLNA_API_KEY = import.meta.env.VITE_BOLNA_API_KEY ?? '';
+const BOLNA_AGENT_ID = import.meta.env.VITE_BOLNA_AGENT_ID ?? '';
+const bolnaConfigured = Boolean(BOLNA_API_KEY && BOLNA_AGENT_ID);
 
 /** Normalise the number to E.164 — strips spaces/dashes, prepends +91 if bare 10-digit */
 function toE164(raw) {
@@ -19,7 +20,7 @@ export default function BolnaDemo() {
 
   const handleCall = async (e) => {
     e.preventDefault();
-    if (!phone.trim() || status !== 'idle') return;
+    if (!phone.trim() || status !== 'idle' || !bolnaConfigured) return;
 
     setStatus('calling');
     setErrMsg('');
@@ -61,18 +62,25 @@ export default function BolnaDemo() {
         Try it Live: Our AI agent will call you now.
       </p>
 
+      {!bolnaConfigured && (
+        <p className="mb-4 rounded border border-amber-200 bg-amber-50 px-3 py-2 font-mono text-[11px] text-amber-900">
+          Voice demo is off until you set <code className="rounded bg-white px-1">VITE_BOLNA_API_KEY</code> and{' '}
+          <code className="rounded bg-white px-1">VITE_BOLNA_AGENT_ID</code> (Vercel env or <code className="rounded bg-white px-1">.env.local</code>).
+        </p>
+      )}
+
       <form onSubmit={handleCall} className="flex flex-wrap gap-3 relative z-10">
         <input
           type="tel"
           placeholder="+91 XXXXX XXXXX"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          disabled={status !== 'idle'}
+          disabled={status !== 'idle' || !bolnaConfigured}
           className="flex-1 min-w-[200px] border-2 border-black px-4 py-2 rounded-lg font-mono text-sm focus:outline-none focus:ring-2 focus:ring-[#D32F2F] disabled:opacity-50"
         />
         <button
           type="submit"
-          disabled={status !== 'idle'}
+          disabled={status !== 'idle' || !bolnaConfigured}
           className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-6 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-all hover:translate-y-1 hover:bg-[#b71c1c] hover:shadow-none disabled:pointer-events-none disabled:opacity-50"
         >
           {status === 'idle'    && <><PhoneCall  className="w-4 h-4" /> Call me!</>}
@@ -90,7 +98,7 @@ export default function BolnaDemo() {
           ✓ Call queued — you'll receive it in a few seconds!
         </p>
       )}
-      {status !== 'error' && status !== 'success' && (
+      {bolnaConfigured && status !== 'error' && status !== 'success' && (
         <p className="text-[10px] font-mono mt-3 text-gray-400 italic">
           🔒 Number used for demo only. Not stored.
         </p>
