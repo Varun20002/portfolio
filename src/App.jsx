@@ -15,10 +15,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#1A1A1A] p-2 md:p-8 font-sans text-gray-900 overflow-x-hidden selection:bg-[#D32F2F] selection:text-white">
-      <div className={`max-w-5xl mx-auto bg-graph border-4 border-black rounded-[2px_15px_4px_20px/20px_3px_25px_3px] shadow-[12px_12px_0px_#D32F2F] relative overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`max-w-5xl mx-auto bg-graph border-4 border-black rounded-[2px_15px_4px_20px/20px_3px_25px_3px] shadow-[6px_6px_0px_#D32F2F] md:shadow-[12px_12px_0px_#D32F2F] relative overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
         <div className="absolute top-0 bottom-0 left-[40px] md:left-[80px] w-[2px] bg-red-500/20 z-0 pointer-events-none" />
 
-        <nav className="flex justify-between items-center p-6 pl-12 md:pl-24 border-b-2 border-black/10 relative z-10 bg-graph/80 backdrop-blur-sm">
+        <nav className="flex justify-between items-center p-4 pl-5 sm:pl-8 md:pl-24 border-b-2 border-black/10 relative z-10 bg-graph/80 backdrop-blur-sm">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#D32F2F] rounded-full border-2 border-black flex items-center justify-center">
               <span className="text-white font-marker text-sm">V</span>
@@ -26,28 +26,28 @@ export default function App() {
             <span className="font-marker text-xl tracking-wider">VARUN</span>
           </div>
           <div className="flex gap-6 font-bold text-sm uppercase tracking-widest hidden md:flex">
-            <a href="#evolution" className="hover:text-[#D32F2F] transition-colors">Mindset</a>
-            <a href="#work" className="hover:text-[#D32F2F] transition-colors">Work</a>
-            <a href="#lab" className="hover:text-[#D32F2F] transition-colors">Lab</a>
+            <a href="#evolution" className="transition-colors [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#D32F2F]">Mindset</a>
+            <a href="#work" className="transition-colors [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#D32F2F]">Work</a>
+            <a href="#lab" className="transition-colors [@media(hover:hover)_and_(pointer:fine)]:hover:text-[#D32F2F]">Lab</a>
           </div>
           <a
             href="https://wa.me/917022420401"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-hand text-2xl text-[#D32F2F] hover:scale-110 transition-transform -rotate-3"
+            className="font-hand text-2xl text-[#D32F2F] transition-transform duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:scale-110 active:scale-[0.97] -rotate-3"
             aria-label="Chat on WhatsApp with Varun"
           >
             Let's chat!
           </a>
         </nav>
 
-        <header className="px-12 md:px-24 py-16 md:py-24 relative z-10">
+        <header className="px-5 sm:px-8 md:px-24 py-16 md:py-24 relative z-10">
           <div className="max-w-3xl relative z-10">
             <p className="font-sans text-gray-500 mb-6 text-sm tracking-wide">
               Bengaluru, India • IST
             </p>
             <p className="font-marker text-3xl text-[#D32F2F] mb-6 tracking-wide uppercase">Varun — Product Builder</p>
-            <h1 className="text-5xl md:text-[5.5rem] font-hand font-bold tracking-tight mb-8 leading-[1.1] text-black">
+            <h1 className="text-3xl sm:text-5xl md:text-[5.5rem] font-hand font-bold tracking-tight mb-8 leading-[1.1] text-black">
               Products should <br/>
               <span className="bg-[#fce4e4] px-3 pb-2 rounded-sm mr-3 relative inline-block">ship,</span> 
               not 
@@ -59,18 +59,18 @@ export default function App() {
             </div>
 
             <div className="mt-16 grid w-full grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:gap-8">
-              <HeroStatCard value="20" suffix="x" label="lead speed ↑" rotation="-2deg" />
+              <HeroStatCard value="20" suffix="x" label="lead generation ⬆" rotation="-2deg" />
               <HeroStatCard value="85" suffix="%" label="hiring time ↓" rotation="1.5deg" />
               <HeroStatCard value="300" suffix="+" label="daily users" rotation="-0.5deg" />
             </div>
           </div>
         </header>
 
-        <section id="evolution" className="px-12 md:px-24 py-20 border-t-4 border-black/5">
-          <h2 className="font-marker text-4xl mb-2">How I learned to build what matters</h2>
+        <section id="evolution" className="px-5 sm:px-8 md:px-24 py-20 border-t-4 border-black/5">
+          <h2 className="font-marker text-2xl sm:text-4xl mb-2">How I learned to build what matters</h2>
           <p className="font-hand text-2xl text-gray-500 mb-12">My product thinking in 3 sticky notes →</p>
           
-          <div className="flex flex-wrap gap-8 justify-center items-start">
+          <div className="flex flex-wrap gap-4 sm:gap-8 justify-center items-start">
             <StickyNote 
               phase="Phase 01"
               title="Build first, ask later."
@@ -101,8 +101,8 @@ export default function App() {
           </div>
         </section>
 
-        <section id="work" className="px-12 md:px-24 py-20 bg-white/40 border-y-4 border-black">
-          <h2 className="font-marker text-4xl mb-2">Work @ CoinDCX</h2>
+        <section id="work" className="px-5 sm:px-8 md:px-24 py-20 bg-white/40 border-y-4 border-black">
+          <h2 className="font-marker text-2xl sm:text-4xl mb-2">Work @ CoinDCX</h2>
           <p className="font-hand text-2xl text-gray-500 mb-12">Running in production right now ↓</p>
 
           <div className="space-y-16">
@@ -137,7 +137,7 @@ export default function App() {
                     href="https://youtu.be/dnGw33_kYVU"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-4 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-all hover:translate-y-1 hover:bg-[#b71c1c] hover:shadow-none md:w-[11.25rem]"
+                    className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-4 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] md:w-[11.25rem]"
                   >
                     <Play className="h-4 w-4 shrink-0 fill-white" strokeWidth={2} aria-hidden /> Watch Demo
                   </a>
@@ -145,7 +145,7 @@ export default function App() {
                     href="https://www.businesspartnerportal.in"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-white px-4 font-marker text-base tracking-wide text-black shadow-[4px_4px_0px_#000] transition-all hover:translate-y-1 hover:shadow-none md:w-[11.25rem]"
+                    className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-white px-4 font-marker text-base tracking-wide text-black shadow-[4px_4px_0px_#000] transition-[transform,box-shadow] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] md:w-[11.25rem]"
                   >
                     <Globe className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden /> Live Portal
                   </a>
@@ -169,7 +169,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Check for more info — opens LinkedIn post in a new tab"
-                  className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-3 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-all hover:translate-y-1 hover:bg-[#b71c1c] hover:shadow-none md:min-w-[13.5rem] md:px-4"
+                  className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-3 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] md:min-w-[13.5rem] md:px-4"
                 >
                   <Linkedin className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden /> Check for more info
                 </a>
@@ -178,12 +178,12 @@ export default function App() {
           </div>
         </section>
 
-        <section id="lab" className="px-12 md:px-24 py-20">
-          <h2 className="font-marker text-4xl mb-2 text-black uppercase tracking-wide">The Lab (Side Hustles)</h2>
+        <section id="lab" className="px-5 sm:px-8 md:px-24 py-20">
+          <h2 className="font-marker text-2xl sm:text-4xl mb-2 text-black uppercase tracking-wide">The Lab (Side Hustles)</h2>
           <p className="font-hand text-[1.6rem] text-gray-500 mb-12">Where I built fast, failed gracefully, and learned deeply.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="bg-[#FFFDF9] border-[3px] border-black rounded-xl p-8 shadow-[8px_8px_0px_#111] relative transition-transform hover:-translate-y-1 duration-300">
+            <div className="bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#111] md:shadow-[8px_8px_0px_#111] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
               <div className="absolute top-6 right-6 font-hand text-[#D32F2F] border border-[#D32F2F] px-3 py-1 rotate-[12deg] font-bold text-xl opacity-90 tracking-wide bg-white shadow-sm">Hackathon</div>
               <h3 className="font-sans font-black text-2xl mb-4 text-black">Vocal Venture AI</h3>
               <p className="font-sans text-gray-600 mb-8 text-sm leading-relaxed">VC Due Diligence Agent built for Lightspeed<br/>Ventures.</p>
@@ -205,7 +205,7 @@ export default function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Read how I built it using my Product thinking — opens Notion in a new tab"
-                className="flex min-h-[5.75rem] w-full flex-col items-center justify-center gap-2 rounded-md border-2 border-black bg-[#D32F2F] px-3 py-3 font-sans text-sm font-bold leading-snug text-white shadow-[3px_3px_0px_#000] transition-all hover:translate-y-0.5 hover:bg-[#b71c1c] hover:shadow-none active:scale-[0.98] sm:min-h-[4.5rem] sm:flex-row sm:gap-2.5 sm:px-4 sm:text-base"
+                className="flex min-h-[5.75rem] w-full flex-col items-center justify-center gap-2 rounded-md border-2 border-black bg-[#D32F2F] px-3 py-3 font-sans text-sm font-bold leading-snug text-white shadow-[3px_3px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-0.5 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] sm:min-h-[4.5rem] sm:flex-row sm:gap-2.5 sm:px-4 sm:text-base"
               >
                 <svg
                   className="h-5 w-5 shrink-0 text-white"
@@ -219,7 +219,7 @@ export default function App() {
               </a>
             </div>
 
-            <div className="bg-[#FFFDF9] border-[3px] border-black rounded-xl p-8 shadow-[8px_8px_0px_#D32F2F] relative transition-transform hover:-translate-y-1 duration-300">
+            <div className="bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#D32F2F] md:shadow-[8px_8px_0px_#D32F2F] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
               <h3 className="font-sans font-black text-2xl mb-2 text-black">Wise AI</h3>
               <p className="font-sans font-bold text-gray-500 text-xs mb-4 uppercase tracking-wider">Chatbot Platform Launchpad</p>
               <p className="font-sans text-gray-700 mb-8 text-sm">Built from scratch in ~2 weeks. Pure execution focus.</p>
@@ -243,7 +243,7 @@ export default function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Wise AI live landing page (new tab)"
-                className="flex min-h-[5.75rem] w-full flex-col items-center justify-center gap-2 rounded-md border-2 border-black bg-white px-3 py-3 font-sans text-sm font-bold leading-snug text-black shadow-[3px_3px_0px_#000] transition-all hover:translate-y-0.5 hover:bg-gray-50 hover:shadow-none active:scale-[0.98] sm:min-h-[4.5rem] sm:flex-row sm:gap-2.5 sm:px-4 sm:text-base"
+                className="flex min-h-[5.75rem] w-full flex-col items-center justify-center gap-2 rounded-md border-2 border-black bg-white px-3 py-3 font-sans text-sm font-bold leading-snug text-black shadow-[3px_3px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-0.5 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-gray-50 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] sm:min-h-[4.5rem] sm:flex-row sm:gap-2.5 sm:px-4 sm:text-base"
               >
                 <ArrowRight className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden />
                 <span className="max-w-[20rem] text-center sm:max-w-none">Live Landing Page</span>
@@ -252,8 +252,8 @@ export default function App() {
           </div>
         </section>
 
-        <section className="px-12 md:px-24 py-20 border-t-2 border-dashed border-black/10">
-          <h2 className="font-marker text-5xl mb-12 text-[#D32F2F] uppercase tracking-wider">What I bring ✓</h2>
+        <section className="px-5 sm:px-8 md:px-24 py-20 border-t-2 border-dashed border-black/10">
+          <h2 className="font-marker text-3xl sm:text-5xl mb-12 text-[#D32F2F] uppercase tracking-wider">What I bring ✓</h2>
           <div className="space-y-8 max-w-2xl">
             <CheckItem text="First-principles thinker, even in chaos" delay={0} />
             <CheckItem text="Ships end-to-end, not just specs" delay={300} />
@@ -262,8 +262,8 @@ export default function App() {
           </div>
         </section>
 
-        <footer className="px-12 md:px-24 py-20 bg-white/20 border-t-4 border-black text-center relative">
-          <p className="font-hand text-4xl md:text-5xl font-bold mb-12 leading-tight">
+        <footer className="px-5 sm:px-8 md:px-24 py-20 bg-white/20 border-t-4 border-black text-center relative">
+          <p className="font-hand text-2xl sm:text-4xl md:text-5xl font-bold mb-12 leading-tight">
             I <span className="text-[#D32F2F]">don&apos;t always</span> know how to build it. <br />
             I just know <span className="text-[#D32F2F]">it&apos;s possible</span> — and that&apos;s enough to{' '}
             <span className="text-[#D32F2F]">start</span>.
@@ -275,7 +275,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp with Varun"
-              className="bg-[#D32F2F] text-white font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
+              className="bg-[#D32F2F] text-white font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] transition-[transform,box-shadow] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] flex items-center gap-2"
             >
               Let&apos;s chat!
             </a>
@@ -283,16 +283,16 @@ export default function App() {
               href="https://www.linkedin.com/in/varun-a-r-/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-black font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2"
+              className="bg-white text-black font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] transition-[transform,box-shadow] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] flex items-center gap-2"
             >
               LinkedIn
             </a>
-            <a href="#" className="bg-white text-black font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+            <a href="#" className="bg-white text-black font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] transition-[transform,box-shadow] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] flex items-center gap-2">
               Resume
             </a>
           </div>
 
-          <p className="font-marker text-6xl text-[#D32F2F] -rotate-3 mb-12">VARUN</p>
+          <p className="font-marker text-4xl sm:text-6xl text-[#D32F2F] -rotate-3 mb-12">VARUN</p>
 
           <div className="border-t-2 border-dashed border-black/10 pt-10 overflow-hidden">
             <div className="flex whitespace-nowrap animate-marquee">

@@ -81,7 +81,7 @@ export default function BolnaDemo() {
         <button
           type="submit"
           disabled={status !== 'idle' || !bolnaConfigured}
-          className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-6 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-all hover:translate-y-1 hover:bg-[#b71c1c] hover:shadow-none disabled:pointer-events-none disabled:opacity-50"
+          className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-6 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50"
         >
           {status === 'idle'    && <><PhoneCall  className="w-4 h-4" /> Call me!</>}
           {status === 'calling' && <><Loader2    className="w-4 h-4 animate-spin" /> Calling...</>}

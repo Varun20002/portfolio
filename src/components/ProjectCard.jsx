@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ProjectCard({ badge, title, description, metrics = [], tags = [], actions, children, rotation }) {
   return (
-    <div className={`bg-white border-2 border-black p-8 rounded-xl shadow-[8px_8px_0px_#000] relative transform ${rotation}`}>
+    <div className={`bg-white border-2 border-black p-4 sm:p-6 md:p-8 rounded-xl shadow-[4px_4px_0px_#000] md:shadow-[8px_8px_0px_#000] relative transform ${rotation}`}>
       <div className="absolute -top-4 left-8 bg-yellow-400/40 w-16 h-8 -rotate-12" />
       <span className="inline-flex items-center gap-2 bg-green-50 text-green-700 font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-green-200 mb-4">
         <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> {badge}

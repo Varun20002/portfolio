@@ -26,6 +26,9 @@ module.exports = {
           '50%':      { transform: 'translateY(-10px) rotate(1deg)' },
         },
       },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.23, 1, 0.32, 1)',
+      },
     },
   },
   plugins: [],
