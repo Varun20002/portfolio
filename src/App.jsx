@@ -287,7 +287,13 @@ export default function App() {
             >
               LinkedIn
             </a>
-            <a href="#" className="bg-white text-black font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] transition-[transform,box-shadow] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] flex items-center gap-2">
+            <a
+              href="https://drive.google.com/file/d/1VnJ7TNMq8XPmpMzFUrg-SMGm5knj6d3R/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open resume PDF on Google Drive (new tab)"
+              className="bg-white text-black font-marker text-lg px-8 py-3 rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] transition-[transform,box-shadow] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] flex items-center gap-2"
+            >
               Resume
             </a>
           </div>
