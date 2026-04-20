@@ -180,8 +180,121 @@ export default function App() {
 
         <section id="lab" className="px-5 sm:px-8 md:px-24 py-20">
           <h2 className="font-marker text-2xl sm:text-4xl mb-2 text-black uppercase tracking-wide">The Lab (Side Hustles)</h2>
-          <p className="font-hand text-[1.6rem] text-gray-500 mb-12">Where I built fast, failed gracefully, and learned deeply.</p>
-          
+          <p className="font-hand text-[1.6rem] text-gray-500 mb-10">Where I built fast, failed gracefully, and learned deeply.</p>
+
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-2 bg-red-50 text-[#D32F2F] font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-[#D32F2F]/30">
+              <span className="w-1.5 h-1.5 bg-[#D32F2F] rounded-full animate-pulse" /> Latest projects
+            </span>
+            <span className="h-px flex-1 bg-[#D32F2F]/20" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 md:auto-rows-fr">
+            <div className="flex h-full flex-col bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-5 shadow-[4px_4px_0px_#D32F2F] md:shadow-[6px_6px_0px_#D32F2F] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
+              <div className="absolute -top-3 right-5 font-marker text-white bg-[#D32F2F] border-2 border-black px-2.5 py-0.5 -rotate-[8deg] text-xs tracking-wide shadow-[2px_2px_0px_#000]">Latest</div>
+              <h3 className="font-sans font-black text-lg mb-2 text-black">Get MY Referral <span className="font-sans font-semibold text-gray-500 text-xs">— OpenClaw referral agent</span></h3>
+              <p className="font-sans text-gray-700 mb-3 text-[0.8rem] leading-snug">Didn&apos;t want job-searching to become a full-time job. Built an agent that runs the whole referral funnel end-to-end.</p>
+
+              <div className="mb-3 grid grid-cols-3 gap-2" aria-label="Outcome funnel">
+                <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-1 py-1.5 text-center">
+                  <p className="font-marker text-base leading-none text-[#D32F2F]">900</p>
+                  <p className="mt-0.5 font-hand text-[0.7rem] leading-tight text-gray-500">connects sent</p>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-1 py-1.5 text-center">
+                  <p className="font-marker text-base leading-none text-[#D32F2F]">600</p>
+                  <p className="mt-0.5 font-hand text-[0.7rem] leading-tight text-gray-500">accepted</p>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-1 py-1.5 text-center">
+                  <p className="font-marker text-base leading-none text-[#D32F2F]">30</p>
+                  <p className="mt-0.5 font-hand text-[0.7rem] leading-tight text-gray-500">referrals</p>
+                </div>
+              </div>
+
+              <div className="border border-dashed border-black rounded-sm px-3 py-2.5 mb-3 bg-transparent relative flex-1">
+                <ul className="space-y-1 text-[0.78rem] font-sans text-gray-700 leading-snug">
+                  <li>• Everyone automates <span className="italic">applying</span>; nobody solves candidate <span className="italic">visibility</span>.</li>
+                  <li>• OpenClaw agent: job discovery, targeted connects, personalized DMs, outreach tracking.</li>
+                </ul>
+              </div>
+
+              <a
+                href="https://www.youtube.com/watch?v=zTrdIbo8muc"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Watch Get MY Referral demo video (new tab)"
+                className="mt-auto flex h-9 w-full items-center justify-center gap-1.5 rounded-md border-2 border-black bg-[#D32F2F] px-3 font-sans text-xs font-bold text-white shadow-[2px_2px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-0.5 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97]"
+              >
+                <Play className="h-3.5 w-3.5 shrink-0 fill-white" strokeWidth={2} aria-hidden />
+                <span>Watch Demo</span>
+              </a>
+            </div>
+
+            <div className="flex h-full flex-col bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-5 shadow-[4px_4px_0px_#D32F2F] md:shadow-[6px_6px_0px_#D32F2F] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
+              <div className="absolute -top-3 right-5 font-marker text-white bg-[#D32F2F] border-2 border-black px-2.5 py-0.5 -rotate-[8deg] text-xs tracking-wide shadow-[2px_2px_0px_#000]">Latest</div>
+              <h3 className="font-sans font-black text-lg mb-2 text-black">Reg Monitor <span className="font-sans font-semibold text-gray-500 text-xs">— RBI / SEBI / IFSCA agent</span></h3>
+              <p className="font-sans text-gray-700 mb-3 text-[0.8rem] leading-snug">Compliance officers waste ~45 min per circular checking if a new rule hits them. One miss = violation.</p>
+
+              <div className="mb-3 grid grid-cols-3 gap-2" aria-label="Outcome metrics">
+                <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-1 py-1.5 text-center">
+                  <p className="font-marker text-base leading-none text-[#D32F2F]">45→5</p>
+                  <p className="mt-0.5 font-hand text-[0.7rem] leading-tight text-gray-500">min/circular</p>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-1 py-1.5 text-center">
+                  <p className="font-marker text-base leading-none text-[#D32F2F]">29</p>
+                  <p className="mt-0.5 font-hand text-[0.7rem] leading-tight text-gray-500">rules tracked</p>
+                </div>
+                <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-1 py-1.5 text-center">
+                  <p className="font-marker text-base leading-none text-[#D32F2F]">100%</p>
+                  <p className="mt-0.5 font-hand text-[0.7rem] leading-tight text-gray-500">cited & traceable</p>
+                </div>
+              </div>
+
+              <div className="border border-dashed border-black rounded-sm px-3 py-2.5 mb-3 bg-transparent relative flex-1">
+                <ul className="space-y-1 text-[0.78rem] font-sans text-gray-700 leading-snug">
+                  <li>• Next.js agent + custom RBI / SEBI / IFSCA scrapers.</li>
+                  <li>• 5-step LLM chain maps circulars to a 29-rule baseline; HIGH / MED / LOW scored deterministically in code.</li>
+                </ul>
+              </div>
+
+              <div className="mt-auto flex gap-2">
+                <a
+                  href="https://www.notion.so/AI-agent-monitoring-RBI-SEBI-IFSCA-circulars-34716258fc6f80fd8887ea5171dbdf1f"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Read Reg Monitor product case study on Notion (new tab)"
+                  className="flex h-9 flex-1 items-center justify-center gap-1.5 rounded-md border-2 border-black bg-[#D32F2F] px-2 font-sans text-xs font-bold text-white shadow-[2px_2px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-0.5 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97]"
+                >
+                  <svg
+                    className="h-3.5 w-3.5 shrink-0 text-white"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden
+                  >
+                    <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.98-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.907c-.56.047-.747.327-.747.933zm14.337.06c.093.42 0 .84-.42.886l-.7.14v10.264c-.607.327-1.167.513-1.68.513-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.95l1.447.327s0 .84-1.167.84l-3.22.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.716c-.094-.42.14-1.026.793-1.073l3.454-.233 4.763 7.306v-6.44l-1.213-.14c-.093-.513.28-.886.747-.933z" />
+                  </svg>
+                  <span>Case Study</span>
+                </a>
+                <a
+                  href="https://www.youtube.com/watch?v=K_uyuAPX93s"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Watch Reg Monitor demo video (new tab)"
+                  className="flex h-9 flex-1 items-center justify-center gap-1.5 rounded-md border-2 border-black bg-white px-2 font-sans text-xs font-bold text-black shadow-[2px_2px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-0.5 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-gray-50 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97]"
+                >
+                  <Play className="h-3.5 w-3.5 shrink-0 fill-black" strokeWidth={2} aria-hidden />
+                  <span>Watch Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-2 bg-gray-50 text-gray-500 font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-black/20">
+              Earlier experiments
+            </span>
+            <span className="h-px flex-1 bg-black/10" />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#111] md:shadow-[8px_8px_0px_#111] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
               <div className="absolute top-6 right-6 font-hand text-[#D32F2F] border border-[#D32F2F] px-3 py-1 rotate-[12deg] font-bold text-xl opacity-90 tracking-wide bg-white shadow-sm">Hackathon</div>
