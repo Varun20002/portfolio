@@ -68,18 +68,18 @@ export default function App() {
 
         <section id="evolution" className="px-5 sm:px-8 md:px-24 py-20 border-t-4 border-black/5">
           <h2 className="font-marker text-2xl sm:text-4xl mb-2">How I learned to build what matters</h2>
-          <p className="font-hand text-2xl text-gray-500 mb-12">My product thinking in 3 sticky notes →</p>
+          <p className="font-hand text-2xl text-gray-500 mb-12">My product thinking in 4 sticky notes →</p>
           
-          <div className="flex flex-wrap gap-4 sm:gap-8 justify-center items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-x-6 gap-y-10 sm:gap-x-8 sm:gap-y-12 items-stretch">
             <StickyNote 
               phase="Phase 01"
-              title="Build first, ask later."
+              title="Build first, talk to user later"
               text="Built a chatbot in 2 weeks. Pushed it everywhere. Nobody cared."
               lesson="User Validation &gt; Execution"
               color="bg-[#FEF08A]"
               rotation="-rotate-3"
             />
-            <div className="hidden lg:flex items-center justify-center text-4xl text-red-400 font-hand pt-16">→</div>
+            <div aria-hidden="true" className="hidden xl:flex items-center justify-center text-4xl text-[#D32F2F]/60 font-hand">→</div>
             <StickyNote 
               phase="Phase 02"
               title="Talk to users first!"
@@ -88,14 +88,23 @@ export default function App() {
               color="bg-[#BFDBFE]"
               rotation="rotate-2"
             />
-            <div className="hidden lg:flex items-center justify-center text-4xl text-red-400 font-hand pt-16">→</div>
+            <div aria-hidden="true" className="hidden xl:flex items-center justify-center text-4xl text-[#D32F2F]/60 font-hand">→</div>
             <StickyNote 
               phase="Phase 03"
+              title="It's all one skill"
+              text="Practiced every framework I could — Start with Why, designing products, improving them, doing RCA, defining metrics. All of them pointed to one thing: first-principles thinking."
+              lesson="Frameworks are tools. Thinking is the skill."
+              color="bg-[#DDD6FE]"
+              rotation="-rotate-2"
+            />
+            <div aria-hidden="true" className="hidden xl:flex items-center justify-center text-4xl text-[#D32F2F]/60 font-hand">→</div>
+            <StickyNote 
+              phase="Phase 04"
               title="Build what pays"
-              text="Now I validate problem + solution + unit economics before code."
+              text="Now I validate problem with Users + design solution using problem-first approach + unit economics before code."
               lesson="→ Ship what scales ✓"
               color="bg-[#FECACA]"
-              rotation="-rotate-1"
+              rotation="rotate-3"
               isCurrent
             />
           </div>
