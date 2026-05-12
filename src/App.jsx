@@ -70,7 +70,7 @@ export default function App() {
           <h2 className="font-marker text-2xl sm:text-4xl mb-2">How I learned to build what matters</h2>
           <p className="font-hand text-2xl text-gray-500 mb-12">My product thinking in 4 sticky notes →</p>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-x-6 gap-y-10 sm:gap-x-8 sm:gap-y-12 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-14 items-stretch">
             <StickyNote 
               phase="Phase 01"
               title="Build first, talk to user later"
@@ -79,7 +79,6 @@ export default function App() {
               color="bg-[#FEF08A]"
               rotation="-rotate-3"
             />
-            <div aria-hidden="true" className="hidden xl:flex items-center justify-center text-4xl text-[#D32F2F]/60 font-hand">→</div>
             <StickyNote 
               phase="Phase 02"
               title="Talk to users first!"
@@ -88,7 +87,6 @@ export default function App() {
               color="bg-[#BFDBFE]"
               rotation="rotate-2"
             />
-            <div aria-hidden="true" className="hidden xl:flex items-center justify-center text-4xl text-[#D32F2F]/60 font-hand">→</div>
             <StickyNote 
               phase="Phase 03"
               title="It's all one skill"
@@ -97,7 +95,6 @@ export default function App() {
               color="bg-[#DDD6FE]"
               rotation="-rotate-2"
             />
-            <div aria-hidden="true" className="hidden xl:flex items-center justify-center text-4xl text-[#D32F2F]/60 font-hand">→</div>
             <StickyNote 
               phase="Phase 04"
               title="Build what pays"
