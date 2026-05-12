@@ -13,6 +13,8 @@ export default function StickyNote({
   isCurrent,
   textHref,
   textLinkLabel,
+  readMoreHref,
+  readMoreLabel = 'Read more',
 }) {
   const body = textHref ? (
     <a
@@ -24,6 +26,16 @@ export default function StickyNote({
     >
       {text}
     </a>
+  ) : readMoreHref ? (
+    <div className="mb-4">
+      <p className="font-hand text-lg text-gray-800 leading-tight mb-1 block">{text}</p>
+      <a
+        href={readMoreHref}
+        className="font-hand text-lg font-semibold text-[#D32F2F] underline decoration-[#D32F2F] decoration-2 underline-offset-2 hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D32F2F]"
+      >
+        {readMoreLabel}
+      </a>
+    </div>
   ) : (
     <p className={bodyClass}>{text}</p>
   );

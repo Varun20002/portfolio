@@ -13,6 +13,45 @@ export default function App() {
     setIsLoaded(true);
   }, []);
 
+  useEffect(() => {
+    const POP_TARGETS = new Set(['#wise-ai', '#vocal-venture-ai']);
+
+    const triggerPop = (hash) => {
+      if (!hash || !POP_TARGETS.has(hash)) return;
+      const el = document.querySelector(hash);
+      if (!el) return;
+      el.classList.remove('pop-target');
+      void el.offsetWidth;
+      el.classList.add('pop-target');
+      window.setTimeout(() => el.classList.remove('pop-target'), 1500);
+    };
+
+    if (window.location.hash) {
+      window.setTimeout(() => triggerPop(window.location.hash), 350);
+    }
+
+    const onHashChange = () => triggerPop(window.location.hash);
+    window.addEventListener('hashchange', onHashChange);
+
+    const onLinkClick = (e) => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const hash = a.getAttribute('href');
+      if (!POP_TARGETS.has(hash)) return;
+      if (window.location.hash === hash) {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.setTimeout(() => triggerPop(hash), 300);
+      }
+    };
+    document.addEventListener('click', onLinkClick);
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChange);
+      document.removeEventListener('click', onLinkClick);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#1A1A1A] p-2 md:p-8 font-sans text-gray-900 overflow-x-hidden selection:bg-[#D32F2F] selection:text-white">
       <div className={`max-w-5xl mx-auto bg-graph border-4 border-black rounded-[2px_15px_4px_20px/20px_3px_25px_3px] shadow-[6px_6px_0px_#D32F2F] md:shadow-[12px_12px_0px_#D32F2F] relative overflow-hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
@@ -46,7 +85,7 @@ export default function App() {
             <p className="font-sans text-gray-500 mb-6 text-sm tracking-wide">
               Bengaluru, India • IST
             </p>
-            <p className="font-marker text-3xl text-[#D32F2F] mb-6 tracking-wide uppercase">Varun — Product Builder</p>
+            <p className="font-marker text-3xl text-[#D32F2F] mb-6 tracking-wide uppercase">Varun — AI Product Builder</p>
             <h1 className="text-3xl sm:text-5xl md:text-[5.5rem] font-hand font-bold tracking-tight mb-8 leading-[1.1] text-black">
               Products should <br/>
               <span className="bg-[#fce4e4] px-3 pb-2 rounded-sm mr-3 relative inline-block">ship,</span> 
@@ -78,6 +117,7 @@ export default function App() {
               lesson="User Validation &gt; Execution"
               color="bg-[#FEF08A]"
               rotation="-rotate-3"
+              readMoreHref="#wise-ai"
             />
             <StickyNote 
               phase="Phase 02"
@@ -86,6 +126,7 @@ export default function App() {
               lesson="Real problem ≠ viable business"
               color="bg-[#BFDBFE]"
               rotation="rotate-2"
+              readMoreHref="#vocal-venture-ai"
             />
             <StickyNote 
               phase="Phase 03"
@@ -170,23 +211,106 @@ export default function App() {
               tags={['AI Voice', 'Hiring', 'Resume Parsing', 'Automation']}
               rotation="-rotate-0.5"
               actions={
-                <a
-                  href="https://www.linkedin.com/posts/varun-a-r-_coindcxunleashed-hackathon-lifeatcoindcx-share-7440771938198827008-ZPGZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADScVrkBdjJ24MwW3SBWbPAlSlcZbc0wTCI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Check for more info — opens LinkedIn post in a new tab"
-                  className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-3 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] md:min-w-[13.5rem] md:px-4"
-                >
-                  <Linkedin className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden /> Check for more info
-                </a>
+                <>
+                  <a
+                    href="https://canva.link/bkvcyijdhyi3uiq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Watch Recruitment Automation demo (new tab)"
+                    className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-4 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] md:w-[11.25rem]"
+                  >
+                    <Play className="h-4 w-4 shrink-0 fill-white" strokeWidth={2} aria-hidden /> Watch Demo
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/posts/varun-a-r-_coindcxunleashed-hackathon-lifeatcoindcx-share-7440771938198827008-ZPGZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADScVrkBdjJ24MwW3SBWbPAlSlcZbc0wTCI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Check for more info — opens LinkedIn post in a new tab"
+                    className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-white px-4 font-marker text-base tracking-wide text-black shadow-[4px_4px_0px_#000] transition-[transform,box-shadow] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] md:w-[11.25rem]"
+                  >
+                    <Linkedin className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden /> More info
+                  </a>
+                </>
               }
             />
           </div>
         </section>
 
         <section id="lab" className="px-5 sm:px-8 md:px-24 py-20">
-          <h2 className="font-marker text-2xl sm:text-4xl mb-2 text-black uppercase tracking-wide">The Lab (Side Hustles)</h2>
-          <p className="font-hand text-[1.6rem] text-gray-500 mb-10">Where I built fast, failed gracefully, and learned deeply.</p>
+          <h2 className="font-marker text-2xl sm:text-4xl mb-8 text-black uppercase tracking-wide">The Lab (Side Hustles)</h2>
+
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-2 bg-green-50 text-green-700 font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-green-200">
+              <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> Live
+            </span>
+            <span className="h-px flex-1 bg-green-500/20" />
+          </div>
+
+          <div className="mb-12 bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#D32F2F] md:shadow-[6px_6px_0px_#D32F2F] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
+            <div className="absolute -top-3 right-5 font-marker text-white bg-[#D32F2F] border-2 border-black px-2.5 py-0.5 -rotate-[8deg] text-xs tracking-wide shadow-[2px_2px_0px_#000]">Live</div>
+
+            <h3 className="font-sans font-black text-2xl mb-1 text-black">
+              🧭 Job Hunt OS <span className="font-sans font-semibold text-gray-500 text-sm">— A personal AI system for job hunting</span>
+            </h3>
+            <p className="font-sans text-gray-700 mb-5 text-sm sm:text-[0.95rem] leading-snug max-w-3xl">
+              Finds jobs globally, ranks them against my full profile, drafts the outreach, and chases referrals — so job hunting takes 1 hour a day, not a month.
+            </p>
+
+            <div className="border border-dashed border-black rounded-sm px-4 py-3 mb-5 bg-transparent">
+              <ol className="space-y-1.5 text-[0.85rem] font-sans text-gray-800 leading-snug">
+                <li><span className="font-bold text-black">1. Finds jobs everywhere</span> <span className="text-gray-500">·</span> LinkedIn, Naukri, Indeed, Wellfound, Greenhouse, Ashby, Lever</li>
+                <li><span className="font-bold text-black">2. Ranks fit against you</span> <span className="text-gray-500">·</span> Scores roles using your full career history, not one resume</li>
+                <li><span className="font-bold text-black">3. Tells you who to hit</span> <span className="text-gray-500">·</span> Recruiter vs Hiring Manager — different message, different angle</li>
+                <li><span className="font-bold text-black">4. OpenClaw gets referrals</span> <span className="text-gray-500">·</span> Auto-messages 1st-degree connections on LinkedIn</li>
+                <li><span className="font-bold text-black">5. Tracks every move</span> <span className="text-gray-500">·</span> Applications, follow-ups, referral links — one dashboard</li>
+              </ol>
+            </div>
+
+            <div className="mb-5 grid grid-cols-1 sm:grid-cols-3 gap-2" aria-label="Under the hood">
+              <div className="flex flex-col items-start justify-center rounded border border-dashed border-black/20 bg-gray-50 px-3 py-2">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">Built on</p>
+                <p className="font-sans text-[0.78rem] text-black leading-snug">CareerOps (open-source), extended for India</p>
+              </div>
+              <div className="flex flex-col items-start justify-center rounded border border-dashed border-black/20 bg-gray-50 px-3 py-2">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">Resumes</p>
+                <p className="font-sans text-[0.78rem] text-black leading-snug">Tailored LaTeX per application</p>
+              </div>
+              <div className="flex flex-col items-start justify-center rounded border border-dashed border-black/20 bg-gray-50 px-3 py-2">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500">Cost</p>
+                <p className="font-sans text-[0.78rem] text-black leading-snug">Runs on Minimax API keys</p>
+              </div>
+            </div>
+
+            <div className="mb-6 grid grid-cols-3 gap-2" aria-label="Outcome metrics">
+              <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-2 py-2 text-center">
+                <p className="font-marker text-xl leading-none text-[#D32F2F]">1 hr</p>
+                <p className="mt-1 font-hand text-[0.75rem] leading-tight text-gray-500">per day</p>
+              </div>
+              <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-2 py-2 text-center">
+                <p className="font-marker text-xl leading-none text-[#D32F2F]">7+</p>
+                <p className="mt-1 font-hand text-[0.75rem] leading-tight text-gray-500">job boards merged</p>
+              </div>
+              <div className="flex flex-col items-center justify-center rounded border border-dashed border-black/20 bg-gray-50 px-2 py-2 text-center">
+                <p className="font-marker text-xl leading-none text-[#D32F2F]">2</p>
+                <p className="mt-1 font-hand text-[0.75rem] leading-tight text-gray-500">message formats</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
+              <p className="font-hand text-lg text-gray-600 italic leading-snug max-w-xl">
+                &ldquo;Before this, job hunting was a second full-time job. Now it&apos;s a 1-hour habit.&rdquo;
+              </p>
+              <a
+                href="https://www.loom.com/share/fea845ad05934035ba9984677382be70"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Watch Job Hunt OS demo on Loom (new tab)"
+                className="inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-lg border-2 border-black bg-[#D32F2F] px-4 font-marker text-base tracking-wide text-white shadow-[4px_4px_0px_#000] transition-[transform,box-shadow,background-color] duration-200 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:translate-y-1 [@media(hover:hover)_and_(pointer:fine)]:hover:bg-[#b71c1c] [@media(hover:hover)_and_(pointer:fine)]:hover:shadow-none active:scale-[0.97] md:w-[12rem]"
+              >
+                <Play className="h-4 w-4 shrink-0 fill-white" strokeWidth={2} aria-hidden /> Watch the demo
+              </a>
+            </div>
+          </div>
 
           <div className="flex items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-2 bg-red-50 text-[#D32F2F] font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-[#D32F2F]/30">
@@ -281,7 +405,7 @@ export default function App() {
                   <span>Case Study</span>
                 </a>
                 <a
-                  href="https://www.youtube.com/watch?v=K_uyuAPX93s"
+                  href="https://youtu.be/lEjbVrRsUYQ?si=ro0jOliYW7oZvCw8"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Watch Reg Monitor demo video (new tab)"
@@ -301,8 +425,10 @@ export default function App() {
             <span className="h-px flex-1 bg-black/10" />
           </div>
 
+          <p className="font-hand text-[1.6rem] text-gray-500 mb-10">Where I built fast, failed gracefully, and learned deeply.</p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#111] md:shadow-[8px_8px_0px_#111] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
+            <div id="vocal-venture-ai" className="scroll-mt-28 bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#111] md:shadow-[8px_8px_0px_#111] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
               <div className="absolute top-6 right-6 font-hand text-[#D32F2F] border border-[#D32F2F] px-3 py-1 rotate-[12deg] font-bold text-xl opacity-90 tracking-wide bg-white shadow-sm">Hackathon</div>
               <h3 className="font-sans font-black text-2xl mb-4 text-black">Vocal Venture AI</h3>
               <p className="font-sans text-gray-600 mb-8 text-sm leading-relaxed">VC Due Diligence Agent built for Lightspeed<br/>Ventures.</p>
@@ -338,7 +464,7 @@ export default function App() {
               </a>
             </div>
 
-            <div className="bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#D32F2F] md:shadow-[8px_8px_0px_#D32F2F] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
+            <div id="wise-ai" className="scroll-mt-28 bg-[#FFFDF9] border-[3px] border-black rounded-xl p-4 sm:p-6 md:p-8 shadow-[4px_4px_0px_#D32F2F] md:shadow-[8px_8px_0px_#D32F2F] relative transition-transform duration-300 ease-out-expo [@media(hover:hover)_and_(pointer:fine)]:hover:-translate-y-1">
               <h3 className="font-sans font-black text-2xl mb-2 text-black">Wise AI</h3>
               <p className="font-sans font-bold text-gray-500 text-xs mb-4 uppercase tracking-wider">Chatbot Platform Launchpad</p>
               <p className="font-sans text-gray-700 mb-8 text-sm">Built from scratch in ~2 weeks. Pure execution focus.</p>
